@@ -1,2 +1,5 @@
 # 04_BattleTank
-UE4 course project
+
+
+
+UE4 course project. Open world battle tank game!
