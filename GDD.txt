@@ -1,0 +1,13 @@
+Game Design Document
+
+effetti sonori,
+modelli 3d,
+materiali,
+textures,
+animazioni?,
+ripari(colline)
+
+numero limitato di colpi,
+vita limitata,
+velocità dipendente dal carro armato,
+ampiezza di movimento mira limitata
