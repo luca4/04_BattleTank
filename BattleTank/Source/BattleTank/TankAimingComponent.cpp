@@ -2,8 +2,8 @@
 
 #include "TankAimingComponent.h"
 #include "Components/SceneComponent.h"
-#include "TankBarrel.h"
 #include "Kismet/GameplayStatics.h"
+#include "TankBarrel.h"
 #include "Engine/World.h"
 #include "GameFramework/Actor.h"
 
@@ -32,7 +32,17 @@ void UTankAimingComponent::AimAt(FVector HitLocation, float LaunchSpeed)
 	FVector OutLaunchVelocity(0.f);
 	FVector StartLocation = Barrel->GetSocketLocation(FName("Projectile"));
 
-	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(this, OutLaunchVelocity, StartLocation, HitLocation, LaunchSpeed, ESuggestProjVelocityTraceOption::DoNotTrace);
+	bool bHaveAimSolution = UGameplayStatics::SuggestProjectileVelocity(
+		this,
+		OutLaunchVelocity,
+		StartLocation,
+		HitLocation,
+		LaunchSpeed,
+		false,
+		0,
+		0,
+		ESuggestProjVelocityTraceOption::DoNotTrace); //Parameter must be present to prevent bug
+
 	if (bHaveAimSolution)
 	{
 		FVector AimDirection = OutLaunchVelocity.GetSafeNormal();
