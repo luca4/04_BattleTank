@@ -15,6 +15,10 @@ UCLASS()
 class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
+
+protected:
+	UFUNCTION(BlueprintCallable, Category = "Setup")
+	ATank* GetControlledTank() const;
 	
 private:
 
@@ -31,13 +35,9 @@ private:
 
 	virtual void Tick(float DeltaTime) override;
 
-	ATank* GetControlledTank() const;
-
 	void  AimTowardsCrosshair();
 
 	bool GetSightRayHitLocation(FVector &OutHitLocation) const;
-
-	
 
 	bool GetLookDirection(FVector2D ScreenLocation, FVector &LookDirection) const;
 
