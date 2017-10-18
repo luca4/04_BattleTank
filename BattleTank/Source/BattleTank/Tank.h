@@ -9,7 +9,6 @@
 class UTankBarrel;
 class UTankTurret;
 class AProjectile;
-class UTankMovementComponent;
 class UTankAimingComponent;
 
 UCLASS()
