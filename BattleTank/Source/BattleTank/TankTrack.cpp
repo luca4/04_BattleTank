@@ -41,7 +41,9 @@ void UTankTrack::DriveTrack()
 
 void UTankTrack::OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComp, FVector NormalImpulse, const FHitResult& Hit)
 {
+	DriveTrack();
 	ApplySidewaysForce();
+	CurrentThrottle = 0;
 }
 
 
