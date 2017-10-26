@@ -16,6 +16,11 @@ class BATTLETANK_API ATankPlayerController : public APlayerController
 {
 	GENERATED_BODY()
 
+public:
+
+	UFUNCTION()
+	void OnTankDeath();
+
 protected:
 
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
