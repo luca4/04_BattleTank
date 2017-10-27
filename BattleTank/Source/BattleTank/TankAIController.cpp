@@ -36,12 +36,12 @@ void ATankAIController::Tick(float DeltaTime)
 void ATankAIController::BeginPlay()
 {
 	Super::BeginPlay();
-
 }
 
 void ATankAIController::OnTankDeath()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Tank Death!!!!!"))
+	if (!GetPawn()) return;
+	GetPawn()->DetachFromControllerPendingDestroy();
 }
 
 void ATankAIController::SetPawn(APawn * InPawn)
@@ -54,7 +54,7 @@ void ATankAIController::SetPawn(APawn * InPawn)
 		if (!ensure(PossessedTank)) return;
 
 		//Subscribe our local method to the tank's death event
-		PossessedTank->OnTankDeath.AddUniqueDynamic(this, &ATankAIController::OnTankDeath);		
+		PossessedTank->OnDeath.AddUniqueDynamic(this, &ATankAIController::OnTankDeath);
 	}
 }
 

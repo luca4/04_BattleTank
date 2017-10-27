@@ -37,6 +37,7 @@ private:
 	UPROPERTY(EditDefaultsOnly)
 	int32 LineTraceRange = 1000000;
 
+	virtual void SetPawn(APawn* InPawn) override;
 
 	virtual void BeginPlay() override;
 
